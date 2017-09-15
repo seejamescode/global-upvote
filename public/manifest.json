@@ -1,0 +1,20 @@
+{
+  "short_name": "GlobalUpvote",
+  "name": "The Global Upvote",
+  "description": "Top voted stories across the web, summarized and updated every sixty seconds.",  
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ececec"
+}
