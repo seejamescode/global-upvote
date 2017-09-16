@@ -76,7 +76,9 @@ const getComments = story => {
 };
 
 const getStories = () => {
-  reddit.getSubreddit("worldnews").getHot().then(posts => {
+  reddit.getSubreddit("worldnews").getHot({
+    limit: 50
+  }).then(posts => {
     newStories = [];
     length = posts.length;
 
