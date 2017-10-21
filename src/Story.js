@@ -35,16 +35,23 @@ const Description = styled.div`
 `;
 
 const Image = styled.img`
-  background: #909090;
   margin-bottom: -1rem;
+  position: absolute;
   width: 100%;
 `;
 
 const ImageContainer = styled.div`
+  background: #909090;
   display: ${props => props.thumbnail && props.url !== "" ? "block" : "none"};
   margin-bottom: 2.17rem;
   position: relative;
   width: 100%;
+
+  :after {
+    content: "";
+    display: ${props => props.thumbnail && props.url !== "" ? "block" : "none"};
+    padding-bottom: ${props => props.height / props.width * 100}%;
+  }
 `;
 
 const ReadMore = styled.a`
@@ -102,7 +109,9 @@ class Story extends Component {
           <Title>{this.props.title}</Title>
           <ImageContainer
             thumbnail={this.props.thumbnail}
+            height={this.props.image.height}
             url={this.props.image.url}
+            width={this.props.image.width}
           >
             <Image alt="" src={this.props.image.url} />
           </ImageContainer>

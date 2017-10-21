@@ -86,7 +86,6 @@ const PlaceholderTitleQuarter = styled.span`
 `;
 
 class Placeholder extends Component {
-
   render() {
     return (
       <Container

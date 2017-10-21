@@ -1,4 +1,5 @@
 import browser from 'detect-browser';
+import 'whatwg-fetch';
 import React, { Component } from "react";
 import ReactGA from 'react-ga';
 import Masonry from 'react-masonry-component';
@@ -248,9 +249,9 @@ class App extends Component {
           />
           <Ad
             black={black}
-            url="https://ghcf.org/hurricane-relief/"
+            url="http://www.unidosporpuertorico.com/en/"
             svg={`<g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><circle fill=${black} strokeWidth="69" cx="123.5" cy="150.5" r="100" /> <path d="M25,151 C25.6666667,137.666667 32.6666667,118.333333 46,93 C93.3333333,33.6666667 159.666667,4 245,4 C219.666667,23.3333333 204,43 198,63 C192,83 196,98 210,108 C162.703996,106.819853 130.037329,109.48652 112,116 C93.9626706,122.51348 64.9626706,134.180147 25,151 Z" fill=${black} /> <path d="M1,298 C1.66666667,284.666667 8.66666667,265.333333 22,240 C69.3333333,180.666667 135.666667,151 221,151 C195.666667,170.333333 180,190 174,210 C168,230 172,245 186,255 C138.703996,253.819853 106.037329,256.48652 88,263 C69.9626706,269.51348 40.9626706,281.180147 1,298 Z" fill=${black} transform="translate(111.000000, 224.500000) scale(-1, -1) translate(-111.000000, -224.500000) " /></g>`}
-            text="Donate to <br /> Hurricane Harvey <br /> Relief!"
+            text="Donate to <br /> Puerto Rico <br /> Relief!"
           />
           <Story
             fetching={this.state.fetching}
