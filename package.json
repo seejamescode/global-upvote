@@ -6,7 +6,6 @@
   "private": true,
   "proxy": "http://localhost:8081",
   "dependencies": {
-    "bluemix-autoscaling-agent": "^1.0.11",
     "compression": "^1.7.0",
     "express": "^4.15.4",
     "path": "^0.12.7",
@@ -33,8 +32,8 @@
     "styled-components": "^2.1.2"
   },
   "scripts": {
-    "bluemix": "NODE_ENV=production node build/server.js",
-    "build": "lint-staged && react-scripts build && NODE_ENV=production babel server.js -d build",
+    "now-start": "NODE_ENV=production node build/server.js",
+    "build": "react-scripts build && cp ./keys/keys.json ./build && NODE_ENV=production babel server.js -d build",
     "deploy": "yarn build && cf zero-downtime-push global-upvote -f ./manifest.yml",
     "precommit": "lint-staged && git add",
     "start": "concurrently \"PORT=8080 react-scripts start\" \"PORT=8081 babel-watch server.js\""

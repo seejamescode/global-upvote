@@ -4,24 +4,13 @@ import fs from "fs";
 import path from "path";
 import request from "request";
 
-if (process.env.NODE_ENV = 'production') {
-  const agent = require("bluemix-autoscaling-agent");
-}
 const app = express();
+const keys = require("./keys.json");
 const port = process.env.PORT || 8080;
 const snoowrap = require("snoowrap");
 
 app.use(compression());
 app.enable("trust proxy");
-
-let keys;
-if (fs.existsSync(path.join(__dirname, "/keys.json"))) {
-  keys = require(path.join(__dirname, "/keys.json"));
-} else if (fs.existsSync(path.join(__dirname, "../keys.json"))) {
-  keys = require(path.join(__dirname, "../keys.json"));
-} else {
-  keys = JSON.parse(process.env.VCAP_SERVICES)["user-provided"][0].credentials;
-}
 
 const reddit = new snoowrap(keys);
 

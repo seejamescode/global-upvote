@@ -18,6 +18,34 @@ const ImageContainer = styled.div`
   width: 100%;
 `;
 
+const PlaceholderNormal= styled.p`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+
+  @media (min-width: 1056px) {
+    display: ${props => props.double ? "none" : "flex"};
+  }
+`;
+
+const PlaceholderFeaturedLargeContainer = styled.div`
+  display: none;
+
+  @media (min-width: 1056px) {
+    display: ${props => props.double ? "flex" : "none"};
+    justify-content: space-between;
+    width: 100%;
+  }
+`
+
+const PlaceholderFeaturedLarge = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 346px;
+  width: 20.21vw;
+`
+
 const PlaceholderBody = styled.span`
   background: ${gray};
   height: .85rem;
@@ -102,22 +130,54 @@ class Placeholder extends Component {
           thumbnail={this.props.thumbnail}
         />
 
-        <PlaceholderBody />
-        <PlaceholderBody />
-        <PlaceholderBody />
-        <PlaceholderBodyQuarter />
+        <PlaceholderNormal
+          double={this.props.double || this.props.thumbnail}
+        >
+          <PlaceholderBody />
+          <PlaceholderBody />
+          <PlaceholderBody />
+          <PlaceholderBodyQuarter />
 
-        <PlaceholderBody />
-        <PlaceholderBody />
-        <PlaceholderBody />
-        <PlaceholderBodyQuarter />
+          <PlaceholderBody />
+          <PlaceholderBody />
+          <PlaceholderBody />
+          <PlaceholderBodyQuarter />
 
-        <PlaceholderBody />
-        <PlaceholderBody />
-        <PlaceholderBody />
-        <PlaceholderBodyQuarter />
+          <PlaceholderBody />
+          <PlaceholderBody />
+          <PlaceholderBody />
+          <PlaceholderBodyQuarter />
 
-        <PlaceholderReadMoreQuarter />
+          <PlaceholderReadMoreQuarter />
+        </PlaceholderNormal>
+
+        <PlaceholderFeaturedLargeContainer
+          double={this.props.double || this.props.thumbnail}
+        >
+          <PlaceholderFeaturedLarge>
+            <PlaceholderBody />
+            <PlaceholderBody />
+            <PlaceholderBody />
+            <PlaceholderBody />
+            <PlaceholderBody />
+            <PlaceholderBodyQuarter />
+
+            <PlaceholderBody />
+            <PlaceholderBody />
+          </PlaceholderFeaturedLarge>
+
+          <PlaceholderFeaturedLarge>
+            <PlaceholderBody />
+            <PlaceholderBodyQuarter />
+
+            <PlaceholderBody />
+            <PlaceholderBody />
+            <PlaceholderBody />
+            <PlaceholderBodyQuarter />
+
+            <PlaceholderReadMoreQuarter />
+          </PlaceholderFeaturedLarge>
+        </PlaceholderFeaturedLargeContainer>
       </Container>
     );
   }

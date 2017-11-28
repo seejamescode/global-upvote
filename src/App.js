@@ -152,7 +152,6 @@ class App extends Component {
       usingExtension: window.self !== window.top,
       version: parseFloat(browser.version),
     });
-
     this.getStories();
     window.addEventListener("offline", this.toggleConnection);
     window.addEventListener("online", this.toggleConnection);

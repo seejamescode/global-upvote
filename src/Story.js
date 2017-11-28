@@ -102,6 +102,7 @@ class Story extends Component {
         }
       >
         <Placeholder
+          double={this.props.double}
           fetching={this.props.fetching}
           thumbnail={this.props.thumbnail}
         />
