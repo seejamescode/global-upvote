@@ -1,6 +1,7 @@
 {
   "name": "global-upvote",
-  "description": "Top voted stories across the web, summarized and updated every sixty seconds.",
+  "description":
+    "Top voted stories across the web, summarized and updated every sixty seconds.",
   "homepage": "https://upvoted.mybluemix.net",
   "version": "1.0.0",
   "private": true,
@@ -32,21 +33,20 @@
     "styled-components": "^2.1.2"
   },
   "scripts": {
-    "now-start": "NODE_ENV=production node build/server.js",
-    "build": "react-scripts build && cp ./keys/keys.json ./build && NODE_ENV=production babel server.js -d build",
-    "deploy": "yarn build && cf zero-downtime-push global-upvote -f ./manifest.yml",
+    "build":
+      "react-scripts build && cp ./keys.json ./build && NODE_ENV=production babel server.js -d build",
+    "deploy":
+      "yarn build && now -e NODE_ENV=\"production\" && now alias && now scale globalupvote.now.sh 1 1",
+    "now-build": "true",
+    "now-start": "PORT=8081 NODE_ENV=production node build/server.js",
     "precommit": "lint-staged && git add",
-    "start": "concurrently \"PORT=8080 react-scripts start\" \"PORT=8081 babel-watch server.js\""
+    "start":
+      "concurrently \"PORT=8080 react-scripts start\" \"PORT=8081 babel-watch server.js\""
   },
   "babel": {
-    "presets": [
-      "es2015",
-      "stage-2"
-    ]
+    "presets": ["es2015", "stage-2"]
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write"
-    ]
+    "*.js": ["prettier --write"]
   }
 }

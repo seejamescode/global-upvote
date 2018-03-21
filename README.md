@@ -1,6 +1,6 @@
 # The Global Upvote
 
-![Mobile, tablet, and desktop screens of The Global Upvote](/screenshots.png?raw=true)
+![Mobile, tablet, and desktop screens of The Global Upvote](/screenshot.png?raw=true)
 
 > Top voted stories across the web, summarized and updated every sixty seconds.
 

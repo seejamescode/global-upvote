@@ -1,8 +1,4 @@
 {
-  "files": [
-    "keys/keys.json",
-    "public",
-    "server.js",
-    "src"
-  ]
+  "alias": ["globalupvote", "globalupvote.com", "www.globalupvote.com"],
+  "files": ["build"]
 }
