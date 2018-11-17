@@ -1,7 +1,6 @@
 {
   "name": "global-upvote",
-  "description":
-    "Top voted stories across the web, summarized and updated every sixty seconds.",
+  "description": "Top voted stories across the web, summarized and updated every sixty seconds.",
   "homepage": "https://upvoted.mybluemix.net",
   "version": "1.0.0",
   "private": true,
@@ -9,8 +8,8 @@
   "dependencies": {
     "compression": "^1.7.0",
     "express": "^4.15.4",
-    "path": "^0.12.7",
-    "request": "^2.81.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "snoowrap": "^1.14.2",
     "whatwg-fetch": "^2.0.3"
   },
@@ -25,28 +24,28 @@
     "lint-staged": "^4.0.4",
     "prettier": "^1.6.1",
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
     "react-ga": "^2.2.0",
     "react-masonry-component": "^5.0.7",
     "react-scripts": "1.0.11",
     "styled-components": "^2.1.2"
   },
   "scripts": {
-    "build":
-      "react-scripts build && cp ./keys.json ./build && NODE_ENV=production babel server.js -d build",
-    "deploy":
-      "yarn build && now -e NODE_ENV=\"production\" && now alias && now scale globalupvote.now.sh 1 1",
+    "build": "react-scripts build && cp ./keys.json ./build && NODE_ENV=production babel server.js -d build",
+    "deploy": "yarn build && now -e NODE_ENV=\"production\" && now alias && now scale globalupvote.now.sh 1 1",
     "now-build": "true",
     "now-start": "PORT=8081 NODE_ENV=production node build/server.js",
     "precommit": "lint-staged && git add",
-    "start":
-      "concurrently \"PORT=8080 react-scripts start\" \"PORT=8081 babel-watch server.js\""
+    "start": "concurrently \"PORT=8080 react-scripts start\" \"PORT=8081 babel-watch server.js\""
   },
   "babel": {
-    "presets": ["es2015", "stage-2"]
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
   },
   "lint-staged": {
-    "*.js": ["prettier --write"]
+    "*.js": [
+      "prettier --write"
+    ]
   }
 }

@@ -16,7 +16,7 @@ const Text = styled.p`margin: 0;`;
 class Error extends Component {
   render() {
     return (
-      <Container black={this.props.black} display={this.props.display}>
+      <Container black={this.props.black} display={this.props.error}>
         <Text>
           The summary service Global Upvote relies on is down right now. We hope
           to see it back soon.

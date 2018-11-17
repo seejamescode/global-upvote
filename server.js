@@ -1,8 +1,5 @@
 import compression from "compression";
 import express from "express";
-import fs from "fs";
-import path from "path";
-import request from "request";
 
 const app = express();
 const keys = require("./keys.json");
@@ -57,6 +54,9 @@ const getComments = story => {
         if (current >= length && length > 0) {
           current = 0;
           length = 0;
+          if (newStories.length < 5) {
+            newStories.concat(stories.slice(0, 5 - newStories.length));
+          }
           stories = newStories;
         }
       }

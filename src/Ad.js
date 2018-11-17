@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 import styled from "styled-components";
 
 const Container = styled.section`
@@ -29,7 +29,10 @@ const Content = styled.a`
   position: absolute;
   text-align: center;
   text-decoration: none;
-  top: 0; bottom: 0; left: 0; right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: calc(100% - 2rem);
 
   * {
@@ -53,17 +56,18 @@ const Content = styled.a`
 `;
 
 const Text = styled.h2`
-  flex: 0;
+  flex: 1;
   font-size: 1rem;
+  max-width: 13rem;
 
   @media (min-width: 320px) {
-    font-size: calc( 16px + (25.888 - 16) * (100vw - 320px) / (640 - 320) );
+    font-size: calc(16px + (25.888 - 16) * (100vw - 320px) / (640 - 320));
   }
 
   @media (min-width: 640px) {
     font-size: 1.618rem;
   }
-`
+`;
 
 class Ad extends Component {
   static defaultProps = {
@@ -72,25 +76,25 @@ class Ad extends Component {
 
   render() {
     return (
-      <Container
-        black={this.props.black}
-      >
+      <Container black={this.props.black} className="double">
         <Content
           href={this.props.url}
-          onClick={() => {ReactGA.event({
-            category: 'ad',
-            action: 'click',
-            label: this.props.text
-          })}}
+          onClick={() => {
+            ReactGA.event({
+              category: "ad",
+              action: "click",
+              label: this.props.text
+            });
+          }}
         >
           <svg
-            dangerouslySetInnerHTML={{__html: this.props.svg}}
+            dangerouslySetInnerHTML={{ __html: this.props.svg }}
             viewBox="0 0 252 302"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
           />
-          <Text dangerouslySetInnerHTML={{__html: this.props.text}} />
+          <Text dangerouslySetInnerHTML={{ __html: this.props.text }} />
         </Content>
       </Container>
     );
